@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ConsoleApp1
 {
@@ -11,20 +12,34 @@ namespace ConsoleApp1
             // Console.WriteLine("Привет " + name + "!!!");
 
             // convert
-            string str;
-            int a, b, result;
+            //string str;
+            //int a, b, result;
 
-            Console.WriteLine("Введите первое число:");
-            str = Console.ReadLine();
-            a = Convert.ToInt32(str);
+            //console.writeline("введите первое число:");
+            //str = console.readline();
+            //a = convert.toint32(str);
 
-            Console.WriteLine("Введите второе число:");
-            str = Console.ReadLine();
-            b = Convert.ToInt32(str);
+            //console.writeline("введите второе число:");
+            //console.writeline("введите второе число:");
+            //str = console.readline();
+            //b = convert.toint32(str);
 
-            result = a + b;
+            //result = a + b;
 
-            Console.WriteLine("Сумма чисел " + a + " и " + b + " равна " + result);
+            //console.writeline("сумма чисел " + a + " и " + b + " равна " + result);
+
+            // globalization
+
+            string str = "1.3";
+
+            NumberFormatInfo numberFormatInfo = new NumberFormatInfo()
+            {
+                NumberDecimalSeparator = ".",
+            };
+
+            double a = Convert.ToDouble(str, numberFormatInfo);
+
+            Console.WriteLine(a);
         }
     }
 }
