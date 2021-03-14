@@ -7,18 +7,37 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // globalization
+            // Parse, TryParse
 
-            string str = "1.3";
+            string str = "1.4";
 
-            NumberFormatInfo numberFormatInfo = new NumberFormatInfo()
+            try
             {
-                NumberDecimalSeparator = ".",
-            };
+                NumberFormatInfo numberFormatInfo = new NumberFormatInfo()
+                {
+                    NumberDecimalSeparator = ".",
+                };
+                double a = double.Parse(str, numberFormatInfo);
+                Console.WriteLine("Число = " + a);
+            } catch(Exception)
+            {
+                Console.WriteLine("Не удалось распарсить строку");
+            }
 
-            double a = Convert.ToDouble(str, numberFormatInfo);
+            string str2 = "1.3dd ddd";
 
-            Console.WriteLine(a);
+            int b;
+
+            bool result = int.TryParse(str2, out b);
+
+            if (result)
+            {
+                Console.WriteLine("Второе число = " + b);
+            }
+            else
+            {
+                Console.WriteLine("Не удалось распарсить второе число");
+            }
         }
     }
 }
