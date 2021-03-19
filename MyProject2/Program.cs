@@ -6,8 +6,15 @@ namespace MyProject2
     {
         static void Main(string[] args)
         {
+            int i = 0;
             while (true)
             {
+                i++;
+                if (i % 10 == 0)
+                {
+                    Console.Clear();
+                }
+
                 ConsoleKey key = Console.ReadKey().Key;
 
                 if (key == ConsoleKey.Enter)
